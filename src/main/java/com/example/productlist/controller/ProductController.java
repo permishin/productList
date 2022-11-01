@@ -2,7 +2,7 @@ package com.example.productlist.controller;
 
 
 import com.example.productlist.dto.request.ProductRequestDto;
-import com.example.productlist.dto.response.SuccessAnswerResponseDto;
+import com.example.productlist.dto.response.SuccessResponseDto;
 import com.example.productlist.entity.ProductEntity;
 import com.example.productlist.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -30,7 +30,7 @@ public class ProductController {
 
     @Operation(summary = "Добавить новый продукт")
     @PutMapping("/add")
-    public ResponseEntity<SuccessAnswerResponseDto> addProduct(@RequestBody ProductRequestDto product) {
+    public ResponseEntity<SuccessResponseDto> addProduct(@RequestBody ProductRequestDto product) {
         return new ResponseEntity<>(productService.addProduct(product), HttpStatus.OK);
     }
 
