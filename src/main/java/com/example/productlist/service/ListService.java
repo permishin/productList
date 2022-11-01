@@ -29,8 +29,8 @@ public class ListService {
         listEntity.setName(listName.getName());
         listRepository.save(listEntity);
         return SuccessResponseDto.builder()
-                .message("List added")
-                .status("OK")
+                .message("List '" + listName.getName() + "' created")
+                .status("CREATED")
                 .timestamp(LocalDateTime.now())
                 .build();
     }
@@ -45,8 +45,8 @@ public class ListService {
         listToProduct.setProduct(productRepository.findById(request.getProductId()).orElseThrow());
         listToProductRepository.save(listToProduct);
         return SuccessResponseDto.builder()
-                .message("Product " + listToProduct.getProduct().getName() +
-                        " added to " + listToProduct.getList().getName() + " list")
+                .message("Product '" + listToProduct.getProduct().getName() +
+                        "' added to '" + listToProduct.getList().getName() + "' list")
                 .status("OK")
                 .timestamp(LocalDateTime.now())
                 .build();

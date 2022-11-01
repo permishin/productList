@@ -23,8 +23,8 @@ public class ProductService {
         productEntity.setKcal(product.getKcal());
         productRepository.save(productEntity);
         return SuccessResponseDto.builder()
-                .message("Product added")
-                .status("OK")
+                .message("Product '" + product.getName() + "' created")
+                .status("CREATED")
                 .timestamp(LocalDateTime.now())
                 .build();
     }

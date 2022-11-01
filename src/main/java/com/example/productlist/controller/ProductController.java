@@ -31,7 +31,7 @@ public class ProductController {
     @Operation(summary = "Добавить новый продукт")
     @PutMapping("/add")
     public ResponseEntity<SuccessResponseDto> addProduct(@RequestBody ProductRequestDto product) {
-        return new ResponseEntity<>(productService.addProduct(product), HttpStatus.OK);
+        return new ResponseEntity<>(productService.addProduct(product), HttpStatus.CREATED);
     }
 
 }

@@ -41,7 +41,7 @@ public class ListController {
     @Operation(summary = "Добавить новый лист")
     @PutMapping("/add")
     public ResponseEntity<SuccessResponseDto> addList(@RequestBody ListRequestDto listRequest) {
-        return new ResponseEntity<>(listService.addList(listRequest), HttpStatus.OK);
+        return new ResponseEntity<>(listService.addList(listRequest), HttpStatus.CREATED);
     }
 
     @Operation(summary = "Записать продукт в лист")
