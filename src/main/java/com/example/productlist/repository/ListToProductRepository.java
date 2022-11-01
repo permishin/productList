@@ -10,7 +10,8 @@ import java.util.List;
 public interface ListToProductRepository extends JpaRepository<ListToProduct, Long> {
 
     @Query("""
-            SELECT l.product FROM ListToProduct as l
+            SELECT l.product
+            FROM ListToProduct as l
             WHERE l.list.id = :id
             """)
     List<ProductEntity> findAllProduct(Long id);
