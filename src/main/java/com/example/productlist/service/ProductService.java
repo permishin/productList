@@ -1,12 +1,13 @@
 package com.example.productlist.service;
 
 import com.example.productlist.dto.request.ProductRequestDto;
-import com.example.productlist.dto.response.SuccessAnswerResponseDto;
+import com.example.productlist.dto.response.SuccessResponseDto;
 import com.example.productlist.entity.ProductEntity;
 import com.example.productlist.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
@@ -15,15 +16,16 @@ public class ProductService {
 
     private ProductRepository productRepository;
 
-    public SuccessAnswerResponseDto addProduct(ProductRequestDto product) {
+    public SuccessResponseDto addProduct(ProductRequestDto product) {
         ProductEntity productEntity = new ProductEntity();
         productEntity.setName(product.getName());
         productEntity.setDescription(product.getDescription());
         productEntity.setKcal(product.getKcal());
         productRepository.save(productEntity);
-        return SuccessAnswerResponseDto.builder()
+        return SuccessResponseDto.builder()
                 .message("Product added")
                 .status("OK")
+                .timestamp(LocalDateTime.now())
                 .build();
     }
 

@@ -21,4 +21,5 @@ public class ListToProduct implements Serializable {
     @OneToOne
     @JoinColumn(name = "product_id")
     private ProductEntity product;
+
 }

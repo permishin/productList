@@ -3,7 +3,7 @@ package com.example.productlist.controller;
 import com.example.productlist.dto.request.ListRequestDto;
 import com.example.productlist.dto.request.ProductToListRequestDto;
 import com.example.productlist.dto.response.ListWithProductsResponseDto;
-import com.example.productlist.dto.response.SuccessAnswerResponseDto;
+import com.example.productlist.dto.response.SuccessResponseDto;
 import com.example.productlist.entity.ListEntity;
 import com.example.productlist.entity.ProductEntity;
 import com.example.productlist.service.ListService;
@@ -39,14 +39,14 @@ public class ListController {
     }
 
     @Operation(summary = "Добавить новый лист")
-    @PutMapping("/addList")
-    public ResponseEntity<SuccessAnswerResponseDto> addList(@RequestBody ListRequestDto listRequest) {
+    @PutMapping("/add")
+    public ResponseEntity<SuccessResponseDto> addList(@RequestBody ListRequestDto listRequest) {
         return new ResponseEntity<>(listService.addList(listRequest), HttpStatus.OK);
     }
 
     @Operation(summary = "Записать продукт в лист")
     @PutMapping("/addProduct")
-    public ResponseEntity<SuccessAnswerResponseDto> addProductToList(@RequestBody ProductToListRequestDto request) {
+    public ResponseEntity<SuccessResponseDto> addProductToList(@RequestBody ProductToListRequestDto request) {
         return new ResponseEntity<>(listService.addProductLoList(request), HttpStatus.OK);
     }
 
