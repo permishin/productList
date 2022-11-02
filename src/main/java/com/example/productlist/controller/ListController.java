@@ -39,13 +39,13 @@ public class ListController {
     }
 
     @Operation(summary = "Добавить новый лист")
-    @PutMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<SuccessResponseDto> addList(@RequestBody ListRequestDto listRequest) {
         return new ResponseEntity<>(listService.addList(listRequest), HttpStatus.CREATED);
     }
 
     @Operation(summary = "Записать продукт в лист")
-    @PutMapping("/addProduct")
+    @PostMapping("/addProduct")
     public ResponseEntity<SuccessResponseDto> addProductToList(@RequestBody ProductToListRequestDto request) {
         return new ResponseEntity<>(listService.addProductLoList(request), HttpStatus.OK);
     }

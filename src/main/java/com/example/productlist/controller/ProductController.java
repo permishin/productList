@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     @Operation(summary = "Добавить новый продукт")
-    @PutMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<SuccessResponseDto> addProduct(@RequestBody ProductRequestDto product) {
         return new ResponseEntity<>(productService.addProduct(product), HttpStatus.CREATED);
     }
